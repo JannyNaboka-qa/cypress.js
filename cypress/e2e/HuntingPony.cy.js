@@ -1,0 +1,18 @@
+describe('Оформение заказа', function () {
+    it('Верные данные', function () {
+         cy.visit('https://huntingpony.com/');
+         cy.get('[href="/collection/lezhanki"] > .img-ratio_cover > :nth-child(1) > .img-ratio > .img-ratio__inner > picture > .loaded').click();
+         cy.get('[data-product-id="338936003"] > .product-preview__content > .product-preview__area-photo > .product-preview__photo > .img-ratio > .img-ratio__inner > a > :nth-child(1) > .product-preview__img-1').click();
+         cy.wait(1000);
+         cy.get('.add-cart-counter__btn').click();
+         cy.wait(1000);
+         cy.get('[data-add-cart-counter-plus=""]').click();
+         cy.wait(1000);
+         cy.get('.header__cart > .icon').click();
+         cy.wait(1000);
+         cy.get('.cart-controls > .button').click();
+         cy.contains('Оформление заказа');
+         cy.contains('Лежанка "Пони-Колосони" Графит (XS - 50 см (Той-терьер, Чихуахуа и т.д))');
+         
+    })
+})
